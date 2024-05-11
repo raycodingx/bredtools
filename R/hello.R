@@ -30,3 +30,12 @@ custom_peak_sort <- function(x){
   }
 }
 
+## 分段排序
+custom_array_sort <- function(x,seq_array){
+  pointer = 1
+  for(i in 1:length(seq_array)){
+    x[pointer:(pointer + seq_array[i]-1)] <- custom_peak_sort(x[pointer:(pointer + seq_array[i] -1)])
+    pointer <- pointer + seq_array[i]
+  }
+  x
+}
