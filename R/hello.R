@@ -51,3 +51,30 @@ custom_sample = function(x = x,size = size,replace = FALSE,seed =2024){
   set.seed(seed)
   sample(x = x,size = size,replace = replace)
 }
+
+
+#批量模拟栋舍-单元-栏位
+pen_simu <- function(piggery_id,piggery_begin,piggery_end,unit_begin,unit_end,pen_begin,pen_end,sep = "-"){
+  pen <- NULL
+  piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
+  unit_array <- substr(unit_begin:unit_end + 100,2,3)
+  pen_array <- substr(pen_begin:pen_end + 1000,2,4)
+  for(i in piggery_begin:piggery_end){
+    for(j in unit_begin:unit_end){
+      tmp <- paste(piggery_id,piggery_array[i],unit_array[j],pen_array,sep = sep)
+      pen <- c(pen,tmp)
+    }
+  }
+  pen
+}
+#批量模拟栋舍-栏位
+pen_simu2 <- function(piggery_id,piggery_begin,piggery_end,pen_begin,pen_end,sep = "-"){
+  pen <- NULL
+  piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
+  pen_array <- substr(pen_begin:pen_end + 1000,2,4)
+  for(i in 1:length(piggery_array)){
+    tmp <- paste(piggery_id,piggery_array[i],pen_array,sep = sep)
+    pen <- c(pen,tmp)
+  }
+  pen
+}
