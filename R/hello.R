@@ -118,14 +118,22 @@ custom_sample = function(x = x,size = size,replace = FALSE,seed =2024){
 pen_simu <- function(piggery_id,piggery_begin,piggery_end,unit_begin,unit_end,pen_begin,pen_end,sep = "-"){
   pen <- NULL
   piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
+  piggery_size <- length(piggery_array)
   unit_array <- substr(unit_begin:unit_end + 100,2,3)
+  unit_size <- length(unit_array)
   pen_array <- substr(pen_begin:pen_end + 1000,2,4)
-  for(i in piggery_begin:piggery_end){
-    for(j in unit_begin:unit_end){
-      tmp <- paste(piggery_id,piggery_array[i],unit_array[j],pen_array,sep = sep)
-      pen <- c(pen,tmp)
-    }
-  }
+  pen_size <- length(pen_array)
+  # for(i in 1:length(piggery_array)){
+  #   for(j in 1:pen_size){
+  #     tmp <- paste(piggery_id,piggery_array[i],unit_array[j],pen_array,sep = sep)
+  #     pen <- c(pen,tmp)
+  #   }
+  # }
+  res_piggery_id <- rep(piggery_id,piggery_size*unit_size*pen_size)
+  res_piggery_array <-rep(piggery_array,each = unit_size*pen_size)
+  res_unit_array <- rep(unit_array,each = pen_size,times = piggery_size)
+  res_pen_array <- rep(pen_array,times = piggery_size*unit_size)
+  pen <- paste(res_piggery_id,res_piggery_array,res_unit_array,res_pen_array,sep = sep)
   pen
 }
 
