@@ -39,3 +39,15 @@ custom_array_sort <- function(x,seq_array){
   }
   x
 }
+
+## 定制gusss抽样
+custom_rnorm = function(n,mean,sd,seed=2024){
+  set.seed(seed)
+  rnorm(n = n,mean = mean,sd = sd)
+}
+
+## 定制随机抽样
+custom_sample = function(x = x,size = size,replace = FALSE,seed =2024){
+  set.seed(seed)
+  sample(x = x,size = size,replace = replace)
+}
