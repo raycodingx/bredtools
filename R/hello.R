@@ -14,6 +14,16 @@
 #   Test Package:              'Cmd + Shift + T'
 
 ##单峰脚本，母猪胎次产仔
+#' peak sort
+#'
+#' @param x an array of numbers
+#'
+#' @return an array of numbers
+#' @export
+#'
+#' @examples
+#' custom_peak_sort(1:5)
+#' custom_peak_sort(20:30)
 custom_peak_sort <- function(x){
   len = length(x)
   x = sort(x)
@@ -31,6 +41,16 @@ custom_peak_sort <- function(x){
 }
 
 ## 分段排序
+#' stage sort by custom_peak_sort function
+#'
+#' @param x an array of numbers
+#' @param seq_array an array of numbers
+#'
+#' @return an sorted array of numbers by custom_peak_sort function
+#' @export
+#'
+#' @examples
+#' custom_array_sort(c(1:10),c(5,5))
 custom_array_sort <- function(x,seq_array){
   pointer = 1
   for(i in 1:length(seq_array)){
@@ -40,13 +60,37 @@ custom_array_sort <- function(x,seq_array){
   x
 }
 
-## 定制gusss抽样
+## 定制gauss抽样
+#' custom gauss sampling
+#'
+#' @param n a number of sample
+#' @param mean mean of sample
+#' @param sd sd of sample
+#' @param seed random of seed
+#'
+#' @return an array of sample
+#' @export
+#'
+#' @examples
+#' custom_rnorm(100,10,1)
 custom_rnorm = function(n,mean,sd,seed=2024){
   set.seed(seed)
   rnorm(n = n,mean = mean,sd = sd)
 }
 
 ## 定制随机抽样
+#' custom average sampling
+#'
+#' @param x an array of sample
+#' @param size number of sample
+#' @param replace boolean value of repeat
+#' @param seed random of seed
+#'
+#' @return an array of sample
+#' @export
+#'
+#' @examples
+#' custom_sample(c(1:10),10,F)
 custom_sample = function(x = x,size = size,replace = FALSE,seed =2024){
   set.seed(seed)
   sample(x = x,size = size,replace = replace)
@@ -54,6 +98,23 @@ custom_sample = function(x = x,size = size,replace = FALSE,seed =2024){
 
 
 #批量模拟栋舍-单元-栏位
+#' batch simulation of piggery-unit-pen encoding
+#'
+#' @param piggery_id abbreviation of piggery code
+#' @param piggery_begin begin number of piggery
+#' @param piggery_end end number of piggery
+#' @param unit_begin begin number of unit
+#' @param unit_end end number of unit
+#' @param pen_begin begin number of pen
+#' @param pen_end end number of pen
+#' @param sep separator
+#'
+#' @return an array of piggery-unit-pen encoding
+#' @export
+#'
+#' @examples
+#' pen_simu("PH",1,6,1,2,1,45)
+#' pen_simu("PH",7,8,3,5,1,20)
 pen_simu <- function(piggery_id,piggery_begin,piggery_end,unit_begin,unit_end,pen_begin,pen_end,sep = "-"){
   pen <- NULL
   piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
@@ -67,7 +128,22 @@ pen_simu <- function(piggery_id,piggery_begin,piggery_end,unit_begin,unit_end,pe
   }
   pen
 }
+
 #批量模拟栋舍-栏位
+#' batch simulation of piggery-pen encoding
+#'
+#' @param piggery_id abbreviation of piggery code
+#' @param piggery_begin begin number of piggery
+#' @param piggery_end end number of piggery
+#' @param pen_begin begin number of pen
+#' @param pen_end end number of pen
+#' @param sep separator
+#'
+#' @return an array of piggery-pen encoding
+#' @export
+#'
+#' @examples
+#' pen_simu2("PH",1,4,1,60)
 pen_simu2 <- function(piggery_id,piggery_begin,piggery_end,pen_begin,pen_end,sep = "-"){
   pen <- NULL
   piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
