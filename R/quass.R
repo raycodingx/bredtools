@@ -22,7 +22,6 @@
 #' @return inverse of additive relationship matrix 'A'
 #' @export
 #'
-#' @examples
 quaas <-
   function(s, d){
 
