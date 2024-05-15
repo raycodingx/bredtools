@@ -11,6 +11,7 @@
 #' @return A data.table including the resorted pedigree is returned. The individual generation is inferred and a new column \strong{Gen} is added when the parameter \emph{addgen} is TRUE. The Gen column is integer.
 #' @keywords internal
 #' @import data.table
+#' @export
 sortped <- function(ped,addgen=TRUE) {
   ped_new <- copy(ped)
   ped_new_colnames <- colnames(ped_new)
