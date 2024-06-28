@@ -151,14 +151,14 @@ pen_simu2 <- function(piggery_id,piggery_begin,piggery_end,pen_begin,pen_end,sep
 # 批量生成栋舍信息
 #' batch simulation dataframe of piggery information
 #'
-#' @param piggery_type_id
-#' @param piggery_begin
-#' @param piggery_end
-#' @param piggery_name_begin
-#' @param piggery_name_end
-#' @param piggery_type
-#' @param branch_id
-#' @param sep
+#' @param piggery_type_id abbreviation of piggery code
+#' @param piggery_begin begin number of piggery
+#' @param piggery_end end number of piggery
+#' @param piggery_name_begin begin name of piggery
+#' @param piggery_name_end end name of piggery
+#' @param piggery_type abbreviation of piggery type code
+#' @param branch_id digital code of branch
+#' @param sep separator
 #'
 #' @return a dataframe of piggery information
 #' @export
