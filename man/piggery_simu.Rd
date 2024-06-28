@@ -16,7 +16,21 @@ piggery_simu(
 )
 }
 \arguments{
-\item{sep}{}
+\item{piggery_type_id}{abbreviation of piggery code}
+
+\item{piggery_begin}{begin number of piggery}
+
+\item{piggery_end}{end number of piggery}
+
+\item{piggery_name_begin}{begin name of piggery}
+
+\item{piggery_name_end}{end name of piggery}
+
+\item{piggery_type}{abbreviation of piggery type code}
+
+\item{branch_id}{digital code of branch}
+
+\item{sep}{separator}
 }
 \value{
 a dataframe of piggery information
