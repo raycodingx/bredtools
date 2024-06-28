@@ -147,3 +147,32 @@ pen_simu2 <- function(piggery_id,piggery_begin,piggery_end,pen_begin,pen_end,sep
   }
   pen
 }
+
+# 批量生成栋舍信息
+#' batch simulation dataframe of piggery information
+#'
+#' @param piggery_type_id
+#' @param piggery_begin
+#' @param piggery_end
+#' @param piggery_name_begin
+#' @param piggery_name_end
+#' @param piggery_type
+#' @param branch_id
+#' @param sep
+#'
+#' @return a dataframe of piggery information
+#' @export
+#'
+#' @examples
+#' piggery_simu("PH",2,18,"配怀","栋","tmp","pigfarm")
+piggery_simu <- function(piggery_type_id,piggery_begin,piggery_end,piggery_name_begin,piggery_name_end,piggery_type,branch_id,sep = "-"){
+  piggery_array <- substr(piggery_begin:piggery_end + 100,2,3)
+  piggery_id <- paste(piggery_type_id,piggery_array,sep = sep)
+  piggery_name <- paste0(piggery_name_begin,piggery_begin:piggery_end,piggery_name_end)
+  pinggery_length <- length(piggery_array)
+  piggery_type <- rep(piggery_type,pinggery_length)
+  branch_id <- rep(branch_id,pinggery_length)
+  uuid <- uuid::UUIDgenerate(n = pinggery_length)
+  pinggery <- cbind(uuid,piggery_type,branch_id,piggery_id,piggery_name)
+  pinggery
+}
