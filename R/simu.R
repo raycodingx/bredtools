@@ -173,6 +173,6 @@ piggery_simu <- function(piggery_type_id,piggery_begin,piggery_end,piggery_name_
   piggery_type <- rep(piggery_type,pinggery_length)
   branch_id <- rep(branch_id,pinggery_length)
   uuid <- uuid::UUIDgenerate(n = pinggery_length)
-  pinggery <- cbind(uuid,piggery_type,branch_id,piggery_id,piggery_name)
+  pinggery <- cbind.data.frame(uuid,piggery_type,branch_id,piggery_id,piggery_name)
   pinggery
 }
